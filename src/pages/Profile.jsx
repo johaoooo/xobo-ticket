@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
   faUser, 
@@ -89,7 +89,7 @@ export default function Profile({ user, onUpdate }) {
               {avatar ? (
                 <img src={URL.createObjectURL(avatar)} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               ) : user?.avatar ? (
-                <img src={`http://localhost:8002${user.avatar}`} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src={`${import.meta.env.VITE_API_URL}${user.avatar}`} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               ) : (
                 <FontAwesomeIcon icon={faUserCircle} size="3x" style={{ color: '#fff' }} />
               )}
