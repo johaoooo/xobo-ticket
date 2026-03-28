@@ -408,3 +408,181 @@ input::placeholder { color: var(--text3); }
 .sidebar-logout { display: flex; align-items: center; gap: 8px; width: calc(100% - 24px); margin: 0 12px 12px; padding: 8px 12px; border-radius: 10px; background: transparent; border: 1px solid var(--border); color: var(--red); font-size: 0.75rem; font-weight: 500; cursor: pointer; transition: all 0.15s; }
 .sidebar-logout:hover { background: rgba(239, 68, 68, 0.08); border-color: var(--red); }
 .main-content { margin-left: 260px; }
+
+/* ── THEME TOGGLE AMÉLIORÉ ── */
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  margin: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.theme-toggle-wrapper:hover { background: var(--surface2); }
+
+.theme-toggle-track {
+  width: 36px;
+  height: 20px;
+  background: var(--surface3);
+  border-radius: 9999px;
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.3s;
+  border: 1px solid var(--border);
+}
+[data-theme="dark"] .theme-toggle-track {
+  background: #6366f1;
+  border-color: #6366f1;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f59e0b;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.theme-toggle-thumb.dark {
+  transform: translateX(16px);
+  color: #a5b4fc;
+}
+
+.theme-toggle-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text2);
+}
+
+/* ── SIDEBAR PROFIL ACTIF ── */
+.sidebar-profile.active {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+.sidebar-profile-role {
+  display: block;
+  font-size: 0.55rem;
+  color: var(--accent);
+  margin-top: 1px;
+  font-weight: 500;
+}
+
+/* ── PROFILE PAGE ── */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .profile-layout { grid-template-columns: 1fr; }
+}
+
+.profile-avatar-card { text-align: center; padding: 28px 20px; }
+
+.profile-avatar-wrap {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto;
+}
+.profile-avatar-lg {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+}
+.avatar-upload-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+.avatar-upload-btn:hover { transform: scale(1.1); }
+
+.role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.role-pill.admin {
+  background: rgba(99,102,241,0.12);
+  color: #6366f1;
+  border: 1px solid rgba(99,102,241,0.25);
+}
+.role-pill.user {
+  background: rgba(16,185,129,0.12);
+  color: var(--green);
+  border: 1px solid rgba(16,185,129,0.25);
+}
+
+.profile-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 18px;
+}
+
+.profile-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.profile-form-grid .full { grid-column: 1 / -1; }
+
+.profile-msg {
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.profile-msg.success {
+  background: rgba(16,185,129,0.1);
+  color: var(--green);
+  border: 1px solid rgba(16,185,129,0.25);
+}
+.profile-msg.error {
+  background: rgba(239,68,68,0.1);
+  color: var(--red);
+  border: 1px solid rgba(239,68,68,0.25);
+}
